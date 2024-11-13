@@ -34,7 +34,8 @@ public Action OnTakeDamagePlayer(int entity, int &attacker, int &inflictor, floa
             if(LastPlayerToThrowObject[inflictor] != -1 && IsClientInGame(LastPlayerToThrowObject[inflictor]))
             {
                 attacker = LastPlayerToThrowObject[inflictor];
-                inflictor = LastPlayerToThrowObject[inflictor];
+                // Mantem o inflictor como o barril
+                damagetype |= DMG_BLAST; // Adiciona o tipo de dano de explosão
                 return Plugin_Changed;
             }
         }
